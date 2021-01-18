@@ -8,7 +8,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - flask-data:/flask-app
+      - ./flask-data:/flask-app
     links:
       - mongo-db
     depends_on:
@@ -20,4 +20,4 @@ services:
     environment:
      - MONGO_INITDB_DATABASE=FountainHead
     volumes:
-      - mongo-data:/data/db
+      - ./mongo-data:/data/db
