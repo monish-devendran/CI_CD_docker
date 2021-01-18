@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  flask-app:
+    build: .
+    command: python run.py
+    ports:
+      - "5000":"5000"
+    volumes:
+      - flask-data:/flask-app
+    links:
+      - mongo-db
+    depends_on:
+      - mongo-db
+  mongo-db:
+    image: mongo:latest
+    hostname: mongo_db_application
+    environment:
+     - MONGO_INITDB_DATABASE=FountainHead
+    volumes:
+      - mongo-data:/data/db
