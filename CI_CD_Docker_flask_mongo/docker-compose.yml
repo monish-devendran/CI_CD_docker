@@ -1,23 +1,21 @@
-version: "3.6"
-
-services:
-  flask-app:
-    container_name: Flask-Application
-    build: .
-    command: python run.py
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./flask-data:/flask-app
-    links:
-      - mongo-db
-    depends_on:
-      - mongo-db
-  mongo-db:
-    container_name: Mongo-Application
-    image: mongo:latest
-    hostname: mongo_db_application
-    environment:
-     - MONGO_INITDB_DATABASE=FountainHead
-    volumes:
-      - ./mongo-data:/data/db
+app:
+  build: .
+  container_name: flask-application
+  working_dir: /flask-app
+  command: python -u app.py
+  ports:
+    - 5000:5000
+  volumes:
+    - ./flask_data:/flask-app
+  links:
+    - db
+db:
+  image: mongo:latest
+  container_name: mongo_database
+  hostname: mongo_db_application
+  environment:
+    - MONGO_INITDB_DATABASE=FountainHead
+  volumes:
+    - ./mongo_data:/data/db
+  ports:
+    - 27017:27017
