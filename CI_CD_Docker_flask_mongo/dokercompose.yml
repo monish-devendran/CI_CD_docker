@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   flask-app:
+    container_name: Flask-Application
     build: .
     command: python run.py
     ports:
@@ -13,6 +14,7 @@ services:
     depends_on:
       - mongo-db
   mongo-db:
+    container_name: Mongo-Application
     image: mongo:latest
     hostname: mongo_db_application
     environment:
