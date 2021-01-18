@@ -26,6 +26,9 @@ def postdata():
     db.demo.insert(content)
     return "inserted"
 
+if __name__ == '__main__':
+    app.run( debug = True)
+
 
 
 
