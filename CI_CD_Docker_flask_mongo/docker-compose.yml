@@ -1,12 +1,11 @@
 app:
   build: .
   container_name: flask-application
-  working_dir: /flask-app
   command: python -u app.py
   ports:
     - 5000:5000
   volumes:
-    - ./flask_data:/flask-app
+    - .:/flask-app
   links:
     - db
 db:
