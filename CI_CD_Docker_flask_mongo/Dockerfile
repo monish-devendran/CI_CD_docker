@@ -3,4 +3,4 @@ RUN mkdir /flask-app
 ADD ./flask-app /flask-app
 WORKDIR /flask-app
 RUN pip install -r requirements.txt
-CMD ["python","/flask-app/app.py"]
+CMD ["python","app.py"]
