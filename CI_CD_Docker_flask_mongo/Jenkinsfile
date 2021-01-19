@@ -12,12 +12,11 @@ pipeline{
     }
     stage("deploy"){
         steps{
-            sshagent(['docker-machine']) {
+            sshagent([['docker-aws']]) {
                 // some block
                 sh """
-                ssh -o StrictHostKeyChecking=no ${env.PATH } dmonish3@34.72.181.130:/home/dmonish3/apps
+                ssh -o StrictHostKeyChecking=no ${env.PATH } ubuntu@3.134.115.63:/home/ubuntu/
                 echo "now in remote vm"
-                echo $path
                 """
             }
         }
