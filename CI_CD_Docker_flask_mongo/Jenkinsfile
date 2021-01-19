@@ -12,7 +12,7 @@ pipeline{
     }
     stage("deploy"){
         steps{
-            sshagent([['docker-aws']]) {
+            sshagent(['docker-aws']) {
                 // some block
                 sh "scp -o StrictHostKeyChecking=no ${env.PATH } ubuntu@3.134.115.63:/home/ubuntu"
                 echo "test"
