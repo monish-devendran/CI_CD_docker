@@ -15,7 +15,7 @@ pipeline{
             sshagent(['docker-aws']) {
                 // some block
                 sh """
-                scp -o StrictHostKeyChecking=no ${env.PATH} ec2-user@3.134.115.63:/home/ubuntu
+                
                 
                 """
             }
