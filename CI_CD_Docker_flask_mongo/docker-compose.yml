@@ -1,7 +1,6 @@
 app:
   build: .
   container_name: flask-application
-  command: python -u app.py
   ports:
     - 5000:5000
   volumes:
