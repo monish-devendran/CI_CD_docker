@@ -4,10 +4,10 @@ pipeline{
     stage("first-test")
     {
       steps{
-      script {
-        def path_file = "$WORKSPACE"
-      }
-        echo "Current workspace is $path_file"
+        script {
+            env.PATH = "$WORKSPACE"
+        }
+        echo "${env.PATH }"
       }
     }
     stage("deploy"){
@@ -15,7 +15,7 @@ pipeline{
             sshagent(['docker-machine']) {
                 // some block
                 sh """
-               
+                ssh -o StrictHostKeyChecking=no ${env.PATH } dmonish3@34.72.181.130:/home/dmonish3/apps
                 echo "now in remote vm"
                 echo $path
                 """
