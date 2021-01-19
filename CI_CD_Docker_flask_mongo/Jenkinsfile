@@ -6,7 +6,7 @@ pipeline{
       steps{
       echo "Current workspace is $WORKSPACE"
       script {
-        def path = $WORKSPACE
+        def path = "$WORKSPACE"
       }
       }
     }
