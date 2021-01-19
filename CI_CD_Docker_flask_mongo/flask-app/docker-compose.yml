@@ -9,7 +9,7 @@ app:
    links:
      - db
    depends_on:
-   	- db
+     - db
 db:
    image: mongo:latest
    container_name: mongo_database
