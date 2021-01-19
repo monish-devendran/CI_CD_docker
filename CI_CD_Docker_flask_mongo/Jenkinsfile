@@ -5,8 +5,21 @@ pipeline{
     {
       steps{
       echo "Current workspace is $WORKSPACE"
+      def path = $WORKSPACE
       println "$WORKSPACE"
       }
+    }
+    stage("deploy"){
+        steps{
+            sshagent(['docker-machine']) {
+                // some block
+                sh """
+                ssh -o StrictHostKeyChecking=no $path dmonish3@34.72.181.130:/home/dmonish3/apps
+                echo "now in remote vm"
+                echo $path
+                """
+            }
+        }
     }
   }
 }
