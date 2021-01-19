@@ -7,8 +7,7 @@ app:
     - .:/flask-app
   links:
     - db
-  depends_on:
-    - db
+
 db:
   image: mongo:latest
   container_name: mongo_database
