@@ -5,8 +5,9 @@ pipeline{
     {
       steps{
       echo "Current workspace is $WORKSPACE"
-      def path = $WORKSPACE
-      println "$WORKSPACE"
+      script {
+        def path = $WORKSPACE
+      }
       }
     }
     stage("deploy"){
