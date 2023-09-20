@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.12.0rc2
 RUN mkdir /flask-app
 ADD . /flask-app
 WORKDIR /flask-app
