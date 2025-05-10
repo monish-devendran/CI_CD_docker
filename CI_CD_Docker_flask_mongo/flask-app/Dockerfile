@@ -1,4 +1,4 @@
-FROM python:3.13.0a6
+FROM python:latest
 RUN mkdir /flask-app
 ADD . /flask-app
 WORKDIR /flask-app
